@@ -27,6 +27,9 @@ import { Router } from '@angular/router';
     </div>
   `
 })
+/**
+ * In this lesson we learned how to switch tracing on in the router module and print out our navigation to the console.
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

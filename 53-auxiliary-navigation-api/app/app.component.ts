@@ -29,6 +29,9 @@ import 'rxjs/add/operator/filter';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to navigate to our auxilary route programatically in our component. There is a javascript api as an alternate option.
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

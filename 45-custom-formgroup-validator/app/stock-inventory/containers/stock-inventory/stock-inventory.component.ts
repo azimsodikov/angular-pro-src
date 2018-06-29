@@ -38,7 +38,7 @@ import { Product, Item } from '../../models/product.interface';
         </div>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -66,7 +66,8 @@ export class StockInventoryComponent implements OnInit {
     }),
     selector: this.createStock({}),
     stock: this.fb.array([])
-  }, { validator: StockValidators.checkStockExists });
+  }, { validator: StockValidators.checkStockExists }); // When we create formGroup with the help of formBuilder service, we pass validators object which will
+  //..have another static method which gets called and this formGroup instance will be passed to access the value property.
 
   constructor(
     private fb: FormBuilder,
@@ -80,10 +81,10 @@ export class StockInventoryComponent implements OnInit {
     Observable
       .forkJoin(cart, products)
       .subscribe(([cart, products]: [Item[], Product[]]) => {
-        
+
         const myMap = products
           .map<[number, Product]>(product => [product.id, product]);
-        
+
         this.productMap = new Map<number, Product>(myMap);
         this.products = products;
         cart.forEach(item => this.addStock(item));

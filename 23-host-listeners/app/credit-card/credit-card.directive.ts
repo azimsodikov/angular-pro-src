@@ -4,7 +4,8 @@ import { Directive, HostListener, ElementRef } from '@angular/core';
   selector: '[credit-card]'
 })
 export class CreditCardDirective {
-  @HostListener('input', ['$event'])
+  @HostListener('input', ['$event']) // host is the element that we binded our directive
+  // it will accept different events as an call back function
   onKeyDown(event: KeyboardEvent) {
     const input = event.target as HTMLInputElement;
 

@@ -6,7 +6,7 @@ import { User } from './auth-form/auth-form.interface';
   selector: 'app-root',
   template: `
     <div>
-      <auth-form 
+      <auth-form
         (submitted)="createUser($event)">
         <h3>Create account</h3>
         <button type="submit">
@@ -23,6 +23,10 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// Just like viewChild viewChildren are used to access group of components, and it will hold the reference in the queryList
+// One difference is, viewChildren should be only used inside a ngAfterViewInit lifecyclehook
+// It works the same as contentChildren, and it has different array methods
+// Whenever you encounter an error which says data changed after it was loaded, try to use angulars change detection mechanism, it may solve the problem
 export class AppComponent {
 
   rememberMe: boolean = false;

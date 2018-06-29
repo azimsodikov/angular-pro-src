@@ -31,4 +31,9 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to create our own custom function which helps us to preload certain modules as we wish. In our root module
+ *  ..we tell we want PreloadStrategy to be custom preload and we pass a class that we created that implements PreloadStrategy and can be seen in the
+ *  ..app.module.ts example.
+ */
 export class AppComponent {}

@@ -18,6 +18,7 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+
 export class AppComponent implements AfterContentInit {
 
   component: ComponentRef<AuthFormComponent>;
@@ -27,6 +28,11 @@ export class AppComponent implements AfterContentInit {
   constructor(
     private resolver: ComponentFactoryResolver
   ) {}
+// If we want certain component to be created in order, createComponent will accept second param as an
+//.. index number and tell it where to create this particular component
+
+// Also after compile time, if we want to move a specific compnonent, there is a move method on the
+// ..viewContainerRef and we just need to pass in view ref and index where we want to move that view
 
   ngAfterContentInit() {
     const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);

@@ -14,7 +14,7 @@ export const ROUTES: Routes = [
     path: 'folder/:name',
     component: MailFolderComponent,
     resolve: {
-      messages: MailFolderResolve
+      messages: MailFolderResolve // We tell the angular to resolve the function inside a MailFolderResolve and assign to property called messages.
     }
   }
 ];

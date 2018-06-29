@@ -9,12 +9,12 @@ import { FormGroup, FormArray } from '@angular/forms';
       <div formArrayName="stock">
         <div
           *ngFor="let item of stocks; let i = index;">
-          
+
           <div class="stock-product__content" [formGroupName]="i">
             <div class="stock-product__name">
               {{ item.value.product_id }}
             </div>
-            <input 
+            <input
               type="number"
               step="10"
               min="10"
@@ -34,8 +34,8 @@ export class StockProductsComponent {
   @Input()
   parent: FormGroup;
 
+  //
   get stocks() {
     return (this.parent.get('stock') as FormArray).controls;
   }
-
 }

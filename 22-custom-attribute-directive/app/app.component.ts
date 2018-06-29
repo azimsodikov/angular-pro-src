@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
     <div>
       <label>
         Credit Card Number
-        <input 
-          name="credit-card" 
+        <input
+          name="credit-card"
           type="text"
           placeholder="Enter your 16-digit card number"
           credit-card>
@@ -15,5 +15,9 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ * Component is a type of directive but component can have an template whereas directive can not, that means we can use
+ * ..all the component methods like a lifecycle hooks and etc.
+ */
 export class AppComponent {
 }

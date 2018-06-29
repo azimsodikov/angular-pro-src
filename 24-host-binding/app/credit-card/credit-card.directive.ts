@@ -4,7 +4,7 @@ import { Directive, HostListener, HostBinding, ElementRef } from '@angular/core'
   selector: '[credit-card]'
 })
 export class CreditCardDirective {
-
+  // HostBinding will let you access to the properties of the dom node and will give access to change or alter the values.
   @HostBinding('style.border')
   border: string;
 
@@ -26,7 +26,7 @@ export class CreditCardDirective {
 
     this.border = '';
     if (/[^\d]+/.test(trimmed)) {
-      this.border = '1px solid red';
+      this.border = '1px solid purple';
     }
 
   }

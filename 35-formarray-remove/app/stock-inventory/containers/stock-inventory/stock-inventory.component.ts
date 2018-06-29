@@ -26,7 +26,7 @@ import { Product } from '../../models/product.interface';
         </stock-products>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -72,7 +72,7 @@ export class StockInventoryComponent {
     const control = this.form.get('stock') as FormArray;
     control.push(this.createStock(stock));
   }
-
+  // Below we are destructuring the pareters to type it to make sure we are getting the rigth items.
   removeStock({ group, index }: { group: FormGroup, index: number }) {
     const control = this.form.get('stock') as FormArray;
     control.removeAt(index);

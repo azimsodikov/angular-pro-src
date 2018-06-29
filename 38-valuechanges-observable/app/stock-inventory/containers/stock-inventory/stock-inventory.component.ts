@@ -36,7 +36,7 @@ import { Product, Item } from '../../models/product.interface';
         </div>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -78,16 +78,17 @@ export class StockInventoryComponent implements OnInit {
     Observable
       .forkJoin(cart, products)
       .subscribe(([cart, products]: [Item[], Product[]]) => {
-        
+
         const myMap = products
           .map<[number, Product]>(product => [product.id, product]);
-        
+
         this.productMap = new Map<number, Product>(myMap);
         this.products = products;
         cart.forEach(item => this.addStock(item));
 
-        this.calculateTotal(this.form.get('stock').value);
-        this.form.get('stock')
+        this.calculateTotal(this.form.get('stock').value); // We are passing products to get the total
+        // valueChanges method are available on any of the control
+        this.form.get('stock') // Whenever we add or delete a product we are dynamically updating the total
           .valueChanges.subscribe(value => this.calculateTotal(value));
 
       });
@@ -96,6 +97,8 @@ export class StockInventoryComponent implements OnInit {
 
   calculateTotal(value: Item[]) {
     const total = value.reduce((prev, next) => {
+      // We are starting the reduce with the 0, and add all the products price multiplied by the quantity and assgining that value to the
+      // ..total property that we created in this class.
       return prev + (next.quantity * this.productMap.get(next.product_id).price);
     }, 0);
     this.total = total;

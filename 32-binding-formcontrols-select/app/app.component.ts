@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ * In this lesson we learned how to hook up formControlName in the template
+ */
 export class AppComponent {}

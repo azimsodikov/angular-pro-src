@@ -38,7 +38,7 @@ import { Product, Item } from '../../models/product.interface';
         </div>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -61,7 +61,7 @@ export class StockInventoryComponent implements OnInit {
 
   form = this.fb.group({
     store: this.fb.group({
-      branch: ['', [Validators.required, StockValidators.checkBranch]],
+      branch: ['', [Validators.required, StockValidators.checkBranch]], // StockValidators class is our custom validator, which is in another file in this folder.
       code: ['', Validators.required]
     }),
     selector: this.createStock({}),
@@ -80,10 +80,10 @@ export class StockInventoryComponent implements OnInit {
     Observable
       .forkJoin(cart, products)
       .subscribe(([cart, products]: [Item[], Product[]]) => {
-        
+
         const myMap = products
           .map<[number, Product]>(product => [product.id, product]);
-        
+
         this.productMap = new Map<number, Product>(myMap);
         this.products = products;
         cart.forEach(item => this.addStock(item));

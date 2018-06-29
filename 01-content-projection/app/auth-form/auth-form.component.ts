@@ -7,6 +7,7 @@ import { User } from './auth-form.interface';
   template: `
     <div>
       <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+      <!-- Below ng-content was projected through passing an header when we use this component  -->
         <ng-content></ng-content>
         <label>
           Email address

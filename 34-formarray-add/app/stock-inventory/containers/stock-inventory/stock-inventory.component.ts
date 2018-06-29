@@ -25,7 +25,7 @@ import { Product } from '../../models/product.interface';
         </stock-products>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -68,8 +68,8 @@ export class StockInventoryComponent {
   }
 
   addStock(stock) {
-    const control = this.form.get('stock') as FormArray;
-    control.push(this.createStock(stock));
+    const formArray = this.form.get('stock') as FormArray;
+    formArray.push(this.createStock(stock));
   }
 
   onSubmit() {

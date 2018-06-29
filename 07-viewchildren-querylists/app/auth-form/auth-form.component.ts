@@ -20,13 +20,13 @@ import { User } from './auth-form.interface';
           <input type="password" name="password" ngModel>
         </label>
         <ng-content select="auth-remember"></ng-content>
-        <auth-message 
+        <auth-message
           [style.display]="(showMessage ? 'inherit' : 'none')">
         </auth-message>
-        <auth-message 
+        <auth-message
           [style.display]="(showMessage ? 'inherit' : 'none')">
         </auth-message>
-        <auth-message 
+        <auth-message
           [style.display]="(showMessage ? 'inherit' : 'none')">
         </auth-message>
         <ng-content select="button"></ng-content>
@@ -51,10 +51,13 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
       this.message.forEach((message) => {
         message.days = 30;
       });
+      // We are changing the values after the view is being initialized, thats why we need to somehow
+      // .. let the angular know that we mutated the data. we can do it using ChangeDetecterRef API, which has
+      // .. detect changes method.
       this.cd.detectChanges();
     }
   }
-  
+
   ngAfterContentInit() {
     if (this.remember) {
       this.remember.forEach((item) => {

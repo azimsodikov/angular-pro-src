@@ -31,10 +31,12 @@ export class StockInventoryService {
   checkBranchId(id: string): Observable<boolean> {
     let search = new URLSearchParams();
     search.set('id', id);
+    // We fist set the queryParams object with the search object and then pass that object when we call the api and check whether that
+    // ..id exists in the database.
     return this.http
       .get('/api/branches', { search })
       .map((response: Response) => response.json())
-      .map((response: any[]) => !!response.length)
+      .map((response: any[]) => !!response.length) // We are using two exclamation !! marks to convert this to the boolean.
       .catch((error: any) => Observable.throw(error.json()));
   }
 }

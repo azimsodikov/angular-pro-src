@@ -29,6 +29,10 @@ import 'rxjs/add/operator/filter';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to navigate to the route that we set it up in previous lesson using routerLink and passing the object that will have
+ *  ..route and message id that we want to show.
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

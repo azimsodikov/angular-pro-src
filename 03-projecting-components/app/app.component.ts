@@ -6,16 +6,18 @@ import { User } from './auth-form/auth-form.interface';
   selector: 'app-root',
   template: `
     <div>
-      <auth-form 
+      <auth-form
         (submitted)="createUser($event)">
         <h3>Create account</h3>
         <button type="submit">
           Join us
         </button>
       </auth-form>
-      <auth-form 
+      <auth-form
         (submitted)="loginUser($event)">
         <h3>Login</h3>
+        <!-- auth-remember is a component that we want to project to the auth formd -->
+        <!-- Inside a ng-content we can select component selecter to project the component at a paticular place -->
         <auth-remember
           (checked)="rememberUser($event)">
         </auth-remember>
@@ -26,6 +28,7 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// So we can project just a dom node as well as whole component to the ng-content
 export class AppComponent {
 
   rememberMe: boolean = false;

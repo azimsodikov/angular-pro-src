@@ -21,7 +21,8 @@ export const ROUTES: Routes = [
   {
     path: 'message/:id',
     component: MailViewComponent,
-    outlet: 'pane'
+    outlet: 'pane' // This is the place we should tell the router that where we want our outlet to be rendered. As you can see we are passing another property
+    // ..called 'outlet' which accepts name of teh router outlet where we want our component to be rendered.
   }
 ];
 

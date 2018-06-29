@@ -30,13 +30,14 @@ import { User } from './auth-form.interface';
 export class AuthFormComponent implements AfterContentInit {
 
   showMessage: boolean;
-
+  // ContentChild basically getting the reference to the projected component
   @ContentChild(AuthRememberComponent) remember: AuthRememberComponent;
 
   @Output() submitted: EventEmitter<User> = new EventEmitter<User>();
 
   ngAfterContentInit() {
     if (this.remember) {
+      // AuthRememberComponent has a checked property which is an observable, we can access to that property through contentChild decorator
       this.remember.checked.subscribe((checked: boolean) => this.showMessage = checked);
     }
   }

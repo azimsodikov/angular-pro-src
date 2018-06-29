@@ -6,7 +6,7 @@ import { User } from './auth-form/auth-form.interface';
   selector: 'app-root',
   template: `
     <div>
-      <auth-form 
+      <auth-form
         (submitted)="createUser($event)">
         <h3>Create account</h3>
         <button type="submit">
@@ -25,6 +25,8 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// Auth remember component is injected multiple times, so in the form component we can make a query using ContentChildren decorator
+// ..that will hold the reference to the all the components that is being projected through content projection
 export class AppComponent {
 
   rememberMe: boolean = false;

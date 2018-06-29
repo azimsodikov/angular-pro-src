@@ -15,6 +15,8 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// The way to destroy the component is a get a reference to it first, and in its prototype it has an destroy method
+// ..that can be used to actually destroy the component.
 export class AppComponent implements AfterContentInit {
 
   component: ComponentRef<AuthFormComponent>;

@@ -15,6 +15,8 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// If we want to create a template dynamically, we can do so by using templateRefs createEmbeddedView method and
+// ..pass that particular view we have reference that we have from the DOM.
 export class AppComponent implements AfterContentInit {
 
   @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;

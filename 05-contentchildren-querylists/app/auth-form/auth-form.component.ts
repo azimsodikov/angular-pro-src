@@ -37,6 +37,8 @@ export class AuthFormComponent implements AfterContentInit {
 
   ngAfterContentInit() {
     if (this.remember) {
+      // ContentChildren is a reference to the array of projected components
+      // That array is a type of a queryList and has diferent array methods we can use on it
       this.remember.forEach((item) => {
         item.checked.subscribe((checked: boolean) => this.showMessage = checked);
       });

@@ -12,6 +12,8 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// As we access the input properties of the component that we are trying to create, we can do the same with its
+// ..output events and subscrube to it.
 export class AppComponent implements AfterContentInit {
 
   @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
@@ -24,6 +26,7 @@ export class AppComponent implements AfterContentInit {
     const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);
     const component = this.entry.createComponent(authFormFactory);
     component.instance.title = 'Create account';
+    // Below line are shown to how to subscribe to the output events of the component that we are trying to subscribe.
     component.instance.submitted.subscribe(this.loginUser);
   }
 

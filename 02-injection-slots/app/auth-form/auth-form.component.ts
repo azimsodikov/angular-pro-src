@@ -8,6 +8,8 @@ import { User } from './auth-form.interface';
     <div>
       <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
         <ng-content select="h3"></ng-content>
+        <!-- select is a way to tell ng-content which node to project  -->
+        <!-- It works the same way querySelector works  -->
         <label>
           Email address
           <input type="email" name="email" ngModel>

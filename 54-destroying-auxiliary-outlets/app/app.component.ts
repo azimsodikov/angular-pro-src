@@ -29,6 +29,11 @@ import 'rxjs/add/operator/filter';
     </div>
   `
 })
+/**
+ *  When we navigate to other parts of the application, the auxilary route is not disappearing from the url. Thats why we need the way to destroy
+ *  ..that route. One way to do it is instead of using static routerLink inside our app.component, use object that will have instructions for navigation
+ *  ..and also we pass null for the pane part of the application.
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

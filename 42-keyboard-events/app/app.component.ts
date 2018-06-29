@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to use keypress events and allow the user to interact with the keyboard and change the values of the counter component.
+ */
 export class AppComponent {}

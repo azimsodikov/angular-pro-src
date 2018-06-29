@@ -12,6 +12,9 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// We can access the component properties using the instance propterty on the component
+// ..which will give access to all the public properties of the component that we are creating
+
 export class AppComponent implements AfterContentInit {
 
   @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;

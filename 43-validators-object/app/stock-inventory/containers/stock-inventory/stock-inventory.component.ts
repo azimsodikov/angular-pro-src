@@ -36,7 +36,7 @@ import { Product, Item } from '../../models/product.interface';
         </div>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -49,6 +49,11 @@ import { Product, Item } from '../../models/product.interface';
     </div>
   `
 })
+/**
+ *  When we want to validate the form controls we use Validators object and this will give us different pre build methods to check against our form controls.
+ *  Inside a form group we pass the array and first argument would be the forms initial value and the second value would be the validation we want to run
+ *
+ */
 export class StockInventoryComponent implements OnInit {
 
   products: Product[];
@@ -78,10 +83,10 @@ export class StockInventoryComponent implements OnInit {
     Observable
       .forkJoin(cart, products)
       .subscribe(([cart, products]: [Item[], Product[]]) => {
-        
+
         const myMap = products
           .map<[number, Product]>(product => [product.id, product]);
-        
+
         this.productMap = new Map<number, Product>(myMap);
         this.products = products;
         cart.forEach(item => this.addStock(item));

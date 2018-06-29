@@ -23,7 +23,7 @@ import { User } from './auth-form.interface';
           <input type="password" name="password" ngModel>
         </label>
         <ng-content select="auth-remember"></ng-content>
-        <auth-message 
+        <auth-message
           [style.display]="(showMessage ? 'inherit' : 'none')">
         </auth-message>
         <ng-content select="button"></ng-content>
@@ -47,7 +47,7 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
     private renderer: Renderer,
     private cd: ChangeDetectorRef
   ) {}
-
+// When you target different environments for your app, like node.js or browser, it is necessarry to use renderer2, which gives an access to the dom elements even in the server side
   ngAfterViewInit() {
     this.renderer.setElementAttribute(this.email.nativeElement, 'placeholder', 'Enter your email address');
     this.renderer.setElementClass(this.email.nativeElement, 'email', true);
@@ -62,7 +62,7 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
       this.cd.detectChanges();
     }
   }
-  
+
   ngAfterContentInit() {
     if (this.remember) {
       this.remember.forEach((item) => {

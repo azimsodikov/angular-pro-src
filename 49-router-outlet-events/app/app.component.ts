@@ -29,6 +29,10 @@ import 'rxjs/add/operator/filter';
     </div>
   `
 })
+/**
+ *  router-outlet gives us different events such as (activate) or (deactivate) which gets called every time we navigate to that route. It will give us instance of
+ *  of a class which get instanciated and on deactivate event it will give an instance of a class which gets destroyed.
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

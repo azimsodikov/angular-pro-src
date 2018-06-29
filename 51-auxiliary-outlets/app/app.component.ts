@@ -29,6 +29,11 @@ import 'rxjs/add/operator/filter';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to display auxiliary (sibling) route next to he router-outlet that we used inside a mail-app component. so when we click
+ *  ..specific message, that message will be displayed next to the messages. The way we do that is create a another router-outlet next to the router-outlet which
+ *  ..which is displaying the messages and give it name property so we can identify it as a secondary outlet. Then
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

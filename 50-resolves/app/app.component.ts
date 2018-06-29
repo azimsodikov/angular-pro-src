@@ -29,6 +29,12 @@ import 'rxjs/add/operator/filter';
     </div>
   `
 })
+/**
+ *  Resolves preloads the data when you actually navigate to particular route. When you creating the routes object after the component that you want to navigate, you provide
+ *  ..resolves object which would be key values as shown inside a route object. We register our created resolves service inside our module.
+ *
+ *  So when we navigate to that particular route, it will make the calls initialize the properties with the data.
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

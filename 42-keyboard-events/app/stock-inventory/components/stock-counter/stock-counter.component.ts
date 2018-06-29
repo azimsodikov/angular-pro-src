@@ -12,24 +12,26 @@ const COUNTER_CONTROL_ACCESSOR = {
   providers: [COUNTER_CONTROL_ACCESSOR],
   styleUrls: ['stock-counter.component.scss'],
   template: `
-    <div 
+    <div
       class="stock-counter"
       [class.focused]="focus">
       <div>
-        <div 
+        <!-- We need to use tabindex="0" to tell the browser that we want to focus on this particular component the tab -->
+        <div
          tabindex="0"
          (keydown)="onKeyDown($event)"
          (blur)="onBlur($event)"
          (focus)="onFocus($event)">
+         <!-- These are the events we are listening in our custom component -->
           <p>{{ value }}</p>
           <div>
-            <button 
+            <button
               type="button"
               (click)="increment()"
               [disabled]="value === max">
               +
             </button>
-            <button 
+            <button
               type="button"
               (click)="decrement()"
               [disabled]="value === min">
@@ -49,11 +51,11 @@ export class StockCounterComponent implements ControlValueAccessor {
   registerOnTouched(fn) {
     this.onTouch = fn;
   }
-  
+
   registerOnChange(fn) {
     this.onModelChange = fn;
   }
-  
+
   writeValue(value) {
     this.value = value || 0;
   }
@@ -67,13 +69,13 @@ export class StockCounterComponent implements ControlValueAccessor {
   focus: boolean;
 
   onKeyDown(event: KeyboardEvent) {
-
-    const handlers = {
+    // On every keyBoard event this function is being called and event has all the keys as a reference.
+    const handlers = { // Whenever arrowUp or Down is pressed decriment() and increment() functoions is being called
       ArrowDown: () => this.decrement(),
       ArrowUp: () => this.increment()
     };
 
-    if (handlers[event.code]) {
+    if (handlers[event.code]) { // This if statement makes sure functions are being called only when up or down keyboards is being pressed
       handlers[event.code]();
       event.preventDefault();
       event.stopPropagation();

@@ -17,6 +17,7 @@ interface File {
     </div>
   `
 })
+// Pipes are just a functions
 export class AppComponent implements OnInit {
   files: File[];
   ngOnInit() {

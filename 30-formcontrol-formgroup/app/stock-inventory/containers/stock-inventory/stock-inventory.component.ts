@@ -9,18 +9,20 @@ import { FormControl, FormGroup, FormArray } from '@angular/forms';
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
         <div formGroupName="store">
-          <input 
-            type="text" 
+          <!-- when we have a nested form groups, we need to differentiate it using formGroupName which is the
+          key name of the formgroup object, basically whatever we form-group created inside a component should match the template. -->
+          <input
+            type="text"
             placeholder="Branch ID"
             formControlName="branch">
-          <input 
-            type="text" 
+          <input
+            type="text"
             placeholder="Manager Code"
             formControlName="code">
         </div>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock

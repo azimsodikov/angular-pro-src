@@ -22,6 +22,9 @@ import { FileSizePipe } from './filesize.pipe';
     FileSizePipe
   ]
 })
+// We can use our custom pipes inside our components using providers property on the component
+// ..we need to register our pipe inside providers so we can inject it inside a constructor, and we can use it before it hits the view so
+// ..we do not have to use it on the template.
 export class AppComponent implements OnInit {
   files: File[];
   mapped: File[];

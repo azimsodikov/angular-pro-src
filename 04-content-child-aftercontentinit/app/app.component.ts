@@ -6,7 +6,7 @@ import { User } from './auth-form/auth-form.interface';
   selector: 'app-root',
   template: `
     <div>
-      <auth-form 
+      <auth-form
         (submitted)="createUser($event)">
         <h3>Create account</h3>
         <button type="submit">
@@ -25,6 +25,7 @@ import { User } from './auth-form/auth-form.interface';
     </div>
   `
 })
+// We can get a reference to the component that is projected inside a component where it is projected using contentChild decorator
 export class AppComponent {
 
   rememberMe: boolean = false;

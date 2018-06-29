@@ -29,6 +29,10 @@ import 'rxjs/add/operator/filter';
     </div>
   `
 })
+/**
+ *  Just like we did for the message, we can resolve each message using resolve property inside our route object. We need to create helper class that will resolve the
+ *  ..each particular message. That helper class will make the http call and return single message according to id that we passed.
+ */
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {}

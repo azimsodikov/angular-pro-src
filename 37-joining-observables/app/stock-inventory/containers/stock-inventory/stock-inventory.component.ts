@@ -32,7 +32,7 @@ import { Product, Item } from '../../models/product.interface';
         </stock-products>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -49,7 +49,7 @@ export class StockInventoryComponent implements OnInit {
 
   products: Product[];
 
-  productMap: Map<number, Product>;
+  productMap: Map<number, Product>; // We are creating this property as an Map to easily look up the object we want to access.
 
   form = this.fb.group({
     store: this.fb.group({
@@ -70,12 +70,10 @@ export class StockInventoryComponent implements OnInit {
     const products = this.stockService.getProducts();
 
     Observable
-      .forkJoin(cart, products)
-      .subscribe(([cart, products]: [Item[], Product[]]) => {
-        
+      .forkJoin(cart, products) // Just like a promise.all operator, it will join the two observables and return as an one.
+      .subscribe(([cart, products]: [Item[], Product[]]) => { // When there is an nested array, we can destructure it using array destructuring like we did it here.
         const myMap = products
-          .map<[number, Product]>(product => [product.id, product]);
-        
+          .map<[number, Product]>(product => [product.id, product]); // Map will have [1, Product] structure to easily look up the object
         this.productMap = new Map<number, Product>(myMap);
         this.products = products;
         cart.forEach(item => this.addStock(item));

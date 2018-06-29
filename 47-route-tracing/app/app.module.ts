@@ -19,7 +19,8 @@ export const ROUTES: Routes = [
     BrowserModule,
     HttpModule,
     MailModule,
-    RouterModule.forRoot(ROUTES, { enableTracing: true })
+    RouterModule.forRoot(ROUTES, { enableTracing: true }) // Basically what it does is helps us debug the router and prints out all the routes information
+    // to the console. It will help us to understand what is going on when we walk through our routes.
   ],
   bootstrap: [
     AppComponent

@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ * In this tutorial we learned how to add formGroup and new stock to the formArray and it is being reflected in the DOM.
+ */
 export class AppComponent {}

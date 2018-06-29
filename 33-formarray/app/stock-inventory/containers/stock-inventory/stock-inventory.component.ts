@@ -24,7 +24,7 @@ import { Product } from '../../models/product.interface';
         </stock-products>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -58,10 +58,12 @@ export class StockInventoryComponent {
       this.createStock({ product_id: 3, quantity: 50 }),
     ])
   })
-
+  // When you see common patterns like here formGroup is being created too often, we can create a wrapper function that will create
+  // ..formGroups for us.
   createStock(stock) {
     return new FormGroup({
-      product_id: new FormControl(parseInt(stock.product_id, 10) || ''),
+      // Pay attention to how you can have a methods have default values when param is not provided
+      product_id: new FormControl(+stock.product_id || ''),
       quantity: new FormControl(stock.quantity || 10)
     });
   }

@@ -31,4 +31,8 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  We can also preload certain modules using preloadStrategy. To do this in our rootModule we need to tell angular that we want our module to be loaded lazily
+ *  ..to do this, we just need to pass object which says preloadAllModules as a second argument to our forRoot component.
+ */
 export class AppComponent {}

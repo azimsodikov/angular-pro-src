@@ -38,7 +38,7 @@ import { Product, Item } from '../../models/product.interface';
         </div>
 
         <div class="stock-inventory__buttons">
-          <button 
+          <button
             type="submit"
             [disabled]="form.invalid">
             Order stock
@@ -64,7 +64,8 @@ export class StockInventoryComponent implements OnInit {
       branch: [
         '',
         [Validators.required, StockValidators.checkBranch],
-        [this.validateBranch.bind(this)]
+        [this.validateBranch.bind(this)] // We are passing our async validator as a third argument and making sure because we are calling this.method we are telling
+        // which this keyword we want our method to be called.
       ],
       code: ['', Validators.required]
     }),
@@ -84,10 +85,10 @@ export class StockInventoryComponent implements OnInit {
     Observable
       .forkJoin(cart, products)
       .subscribe(([cart, products]: [Item[], Product[]]) => {
-        
+
         const myMap = products
           .map<[number, Product]>(product => [product.id, product]);
-        
+
         this.productMap = new Map<number, Product>(myMap);
         this.products = products;
         cart.forEach(item => this.addStock(item));
@@ -100,6 +101,8 @@ export class StockInventoryComponent implements OnInit {
 
   }
 
+  // We are creating our custom async validator function inside our component and using the service we are making request to the api and get the response as an boolean
+  // ..if it returns true we are gonna return null and form is valid, if it does not return anything, it means this branch does not exists in our database.
   validateBranch(control: AbstractControl) {
     return this.stockService
       .checkBranchId(control.value)

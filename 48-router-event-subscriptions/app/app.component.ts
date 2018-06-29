@@ -32,7 +32,9 @@ import 'rxjs/add/operator/filter';
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
   ngOnInit() {
-    this.router.events
+    this.router.events // We have different events according interaction with the navigation, but we only want our subscribe method to be called when
+    // ..we have an event which is a NavigationEnd instance. So this way we can check we are only calling the subscribe when we have a NavigationEnd event.
+    // Below filter method is an rxjs method and we need to import that method from the rxjs/add/operator/filter
       .filter(event => event instanceof NavigationEnd)
       .subscribe(event => {
         console.log(event);

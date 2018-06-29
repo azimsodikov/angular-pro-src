@@ -11,21 +11,22 @@ import { Product } from '../../models/product.interface';
       <div formArrayName="stock">
         <div
           *ngFor="let item of stocks; let i = index;">
-          
+
           <div class="stock-product__content" [formGroupName]="i">
             <div class="stock-product__name">
               {{ getProduct(item.value.product_id).name }}
+              <!-- getProduct will accept the param as an a id, then looks up from the map and return that correct product -->
             </div>
             <div class="stock-product__price">
               {{ getProduct(item.value.product_id).price | currency:'USD':true }}
             </div>
-            <input 
+            <input
               type="number"
               step="10"
               min="10"
               max="1000"
               formControlName="quantity">
-            <button 
+            <button
               type="button"
               (click)="onRemove(item, i)">
               Remove
@@ -47,7 +48,7 @@ export class StockProductsComponent {
   @Output()
   removed = new EventEmitter<any>();
 
-  getProduct(id) {
+  getProduct(id): Product {
     return this.map.get(id);
   }
 

@@ -31,4 +31,9 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  To be able to lazily load the module we needed to change how our mail module is being loaded. We added mail/ url to the route when we are dealing with
+ *  ..the mail module components. We added another module called dashboard, which we are going to load lazyly. Also instead of using mail-app component
+ *  ..we are using router-outlet to be able load the modules dynamically.
+ */
 export class AppComponent {}

@@ -11,6 +11,7 @@ export class StockValidators {
     const selector = control.get('selector');
 
     if (!(stockItem && selector)) return null;
+    // This is the quick check to make sure stockItem and selector exists, if not function will return before processing any further.
 
     const exists = stockItem.value.some((stock) => {
       return stock.product_id === parseInt(selector.value.product_id, 10);
