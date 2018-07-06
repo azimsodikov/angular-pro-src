@@ -9,6 +9,10 @@ import { FoodStoreService } from './food-store/food-store.service';
     </div>
   `
 })
+/**
+ *  Configurable modules are used to dynamically pass the tokens to the module's forRoot method and provide that tokens to the services that is
+ *  ..being used inside that modules.
+ */
 export class AppComponent {
   store = this.foodService.getStore();
   constructor(private foodService: FoodStoreService) {}

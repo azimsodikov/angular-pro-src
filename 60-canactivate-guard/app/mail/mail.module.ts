@@ -42,7 +42,7 @@ export const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    AuthModule,
+    AuthModule, // Since we are using AuthModule inside our mail.module we need to include it inside the imports array inside this module;
     RouterModule.forChild(ROUTES)
   ],
   declarations: [

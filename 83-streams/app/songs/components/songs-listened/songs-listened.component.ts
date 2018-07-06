@@ -30,7 +30,7 @@ export class SongsListenedComponent implements OnInit {
 
   ngOnInit() {
     this.listened$ = this.store.select('playlist')
-      .filter(Boolean)
+      .filter(Boolean)// This means only run this if there is in fact data;
       .map(playlist => playlist.filter(track => track.listened));
   }
 

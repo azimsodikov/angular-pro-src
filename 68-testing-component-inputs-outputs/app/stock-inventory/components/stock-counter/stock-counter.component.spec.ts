@@ -55,6 +55,7 @@ describe('StockCounterComponent', () => {
   });
 
   it('should not increment over the maximum value', () => {
+    // This is how we can test the input values; We just need to reassign value to it and test it with that value;
     component.step = 20;
     component.max = 20;
     component.increment();
@@ -66,6 +67,8 @@ describe('StockCounterComponent', () => {
     spyOn(component.changed, 'emit').and.callThrough();
     component.step = 100;
     component.increment();
+    // This is how we should test @output, with event emitter, we need to spyOn the components changed property and look for emit method and call that method;
+    // And call the increment with a new value with expected value to have been called with steps that we set before;
     expect(component.changed.emit).toHaveBeenCalledWith(100);
   });
 

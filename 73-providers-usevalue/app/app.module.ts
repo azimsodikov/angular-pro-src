@@ -23,7 +23,11 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   providers: [
-    { provide: 'api', useValue: '/api/pizzas' }
+    { provide: 'api', useValue: '/api/pizzas' } // We are using the string token of 'api' to get the value if of this url when we request this inside any,
+    // component or service. We can use this globally;
   ]
 })
+/**
+ *  When we provide this globally we can ask in our contsructor methods, using the @Inject method give us the value of this provider;
+ */
 export class AppModule {}

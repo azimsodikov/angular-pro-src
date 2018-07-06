@@ -13,6 +13,7 @@ describe('StockCounterComponent', () => {
   let component: StockCounterComponent;
   let fixture: ComponentFixture<StockCounterComponent>;
 
+  // We are testing teh component methods;
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [

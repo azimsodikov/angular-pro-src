@@ -13,7 +13,9 @@ interface Drink {
 export abstract class DrinkService {
   getDrinks: () => Observable<Drink[]>;
 }
-
+/**
+ *  By using the Abstract class we limited our service to use just getDrinks method.
+ */
 @Component({
   selector: 'drink-viewer',
   providers: [

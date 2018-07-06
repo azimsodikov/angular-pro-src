@@ -9,9 +9,11 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class SongsService {
 
+  copy;
   getPlaylist$ = this.http
     .get('/api/playlist')
     .map(res => res.json())
+    .do(next => this.copy = next)
     .do(next => this.store.set('playlist', next));
 
   constructor(
@@ -19,4 +21,7 @@ export class SongsService {
     private store: Store
   ) {}
 
+  changeTheValue() {
+    this.store.set('playlist', this.copy);
+  }
 }

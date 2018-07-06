@@ -17,7 +17,10 @@ TestBed.initTestEnvironment(
 class TestComponent {
   value = 123456;
 }
-
+/**
+ *  In this lesson we are testing our credit card directive that will format the credit card number when use is typing. To do this we are creating the
+ *  ..the actual component that can be used to test this particular directive.
+ */
 describe('CreditCardDirective', () => {
 
   let component: TestComponent;
@@ -37,11 +40,13 @@ describe('CreditCardDirective', () => {
   });
 
   it('should format the string with spaces', () => {
-    const directive = el.query(By.directive(CreditCardDirective)).nativeElement;
+    const directive = el.query(By.directive(CreditCardDirective)).nativeElement; // In this method we are using selector by directive, to select the native
+    // element's value;
     directive.value = '475123';
-    directive.dispatchEvent(new Event('input'));
+    directive.dispatchEvent(new Event('input')); // We are dispatching new event called input because in our directive, we are listenin for the input method,
+    // ..to trigger the methods.
     expect(directive.value).toBe('4751 23');
-    directive.value = '4751239812019201';
+    directive.value = '4751239812019201'; // Change the numbers again with different value;
     directive.dispatchEvent(new Event('input'));
     expect(directive.value).toBe('4751 2398 1201 9201');
   });

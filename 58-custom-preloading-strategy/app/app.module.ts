@@ -29,7 +29,7 @@ export const ROUTES: Routes = [
   declarations: [
     AppComponent
   ],
-  providers: [CustomPreload],
+  providers: [CustomPreload], // We are importing our customPreload to providers array just like an service
   imports: [
     BrowserModule,
     HttpModule,

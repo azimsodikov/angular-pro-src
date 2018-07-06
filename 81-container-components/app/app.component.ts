@@ -11,3 +11,6 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {}
+/**
+ *  In this lesson we set it up the container components with store injected in side the components.
+ */

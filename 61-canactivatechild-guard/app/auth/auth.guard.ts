@@ -12,7 +12,7 @@ export class AuthGuard implements CanLoad, CanActivate, CanActivateChild {
   canActivate() {
     return this.authService.isLoggedIn();
   }
-  canActivateChild() {
+  canActivateChild() { // With this we can access the mail route but we can not access the child compoenents of the mail route.
     return false;
   }
 }

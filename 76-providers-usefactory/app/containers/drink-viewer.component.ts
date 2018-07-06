@@ -13,7 +13,9 @@ interface Drink {
 export function DrinkFactory(http) {
   return new FoodService(http, '/api/drinks');
 }
-
+/**
+ *  When we are using the providers property inside a component, we can actually use useFactory and provide our custom dependencies. like we did below;
+ */
 @Component({
   selector: 'drink-viewer',
   providers: [

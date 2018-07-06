@@ -7,17 +7,20 @@ import 'rxjs/add/observable/of';
 
 import { StockInventoryService } from './stock-inventory.service';
 
+// When we are testing multiple classes and we need a TestBed, we can actually just create a one TestBed and use that throuout our testing files.
 TestBed.initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting()
 );
 
 function createResponse(body) {
-  return Observable.of(
+  return Observable.of( // We are creating the response Object with the json that we are passing in;
     new Response(new ResponseOptions({ body: JSON.stringify(body) }))
   );
 }
 
+// When we are testing the service which has http service dependency, we do not actually use real http service. We are gonna create our custom mock
+// ..http service which is gonna return Observable;
 class MockHttp {
   get() {
     return createResponse([]);
@@ -36,7 +39,7 @@ describe('StockInventoryService', () => {
     const bed = TestBed.configureTestingModule({
       providers: [
         StockInventoryService,
-        { provide: Http, useClass: MockHttp }
+        { provide: Http, useClass: MockHttp } // We are telling angular we wanna override the Http service with our custom mock service;
       ]
     });
     http = bed.get(Http);
@@ -44,7 +47,9 @@ describe('StockInventoryService', () => {
   });
 
   it('should get cart items', () => {
-    spyOn(http, 'get').and.returnValue(createResponse([...cartItems]));
+    spyOn(http, 'get').and.returnValue(createResponse([...cartItems])); // We are hijacking the http token and using our mockHttp to be able to
+    //.. return our custom data and test against it.
+
 
     service.getCartItems()
       .subscribe((result) => {

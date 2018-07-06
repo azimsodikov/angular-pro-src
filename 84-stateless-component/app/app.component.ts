@@ -11,3 +11,7 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {}
+/**
+ *  In this lesson we created the songs list component (stateless) component, which just lists the songs with styles applied to show the use
+ *  ..which songs are listened or favorited. The songs data are being passed from the parent component through one way data flow;
+ */

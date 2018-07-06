@@ -10,4 +10,8 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to compose streams from our Store. In our favorites and listened components we are filtering the observable and
+ *  ..creating new observable to filter down favorites and listened songs to correct comonents.
+ */
 export class AppComponent {}

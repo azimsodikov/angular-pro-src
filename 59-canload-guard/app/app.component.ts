@@ -31,4 +31,9 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  We are creating the auth module where we have a auth service and auth guard to protect the dashboard module from loading unless the user is a
+ *  ..admin. So inside our app.module routes where we are loading our dashboard module, we can put a check canLoad proprerty where we pass our AuthGuard
+ *  ..to the array. CanLoad is a one of the many interfaces that router provides to allow or reject the user based on the user's role;
+ */
 export class AppComponent {}

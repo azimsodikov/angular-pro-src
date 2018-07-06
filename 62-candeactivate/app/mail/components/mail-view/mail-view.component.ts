@@ -12,7 +12,7 @@ import { Mail } from '../../models/mail.interface';
   template: `
     <div class="mail-view">
       <h2>{{ (message | async).from }}</h2>
-      <p>{{ (message | async).full }}</p>
+      <p>{{ (message | async).summary }}</p>
     </div>
     <div class="mail-reply">
       <textarea

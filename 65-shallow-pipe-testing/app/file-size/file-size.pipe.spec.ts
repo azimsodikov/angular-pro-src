@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
-TestBed.initTestEnvironment(
+TestBed.initTestEnvironment( // We are setting up our test environment by using angulars special classes and methods.
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting()
 );
@@ -10,10 +10,10 @@ TestBed.initTestEnvironment(
 import { FileSizePipe } from './file-size.pipe';
 
 describe('FileSizePipe', () => {
-
+  // Here we are testing this particular pipe in an action inside a component using angular TestBed; This testing method is called shallow testing;
   describe('Shallow FileSizePipe test', () => {
 
-    @Component({
+    @Component({ // We are creating this component on the fly to emulate the real usage of this particular pipe.
       template: `
         Size: {{ size | filesize:suffix }}
       `
@@ -24,11 +24,12 @@ describe('FileSizePipe', () => {
     }
 
     let component: TestComponent;
-    let fixture: ComponentFixture<TestComponent>;
+    let fixture: ComponentFixture<TestComponent>; // Component fixture helps us to access changes and debug as well as accessing the native element
     let el: HTMLElement;
+    // We are creating this variables to later initialize it with actual component instances to be able to create the module simulate using the pipe.
 
     beforeEach(() => {
-      TestBed.configureTestingModule({
+      TestBed.configureTestingModule({ // With this beforeEach we are basically create the component and initialize it with correct data;
         declarations: [
           FileSizePipe,
           TestComponent
@@ -41,8 +42,9 @@ describe('FileSizePipe', () => {
 
     it('should convert bytes to megabytes', () => {
       fixture.detectChanges();
+      console.log(el); // We can log the template element
       expect(el.textContent).toContain('Size: 117.74MB');
-      component.size = 1029281;
+      component.size = 1029281; // We are changing the the value of the size property that we created above to test it with different value;
       fixture.detectChanges();
       expect(el.textContent).toContain('Size: 0.98MB');
     });
@@ -60,8 +62,9 @@ describe('FileSizePipe', () => {
 
   });
 
+  // This test is isolated from the angular, we are just testing whether class methods is working;
   describe('Isolate FileSizePipe test', () => {
-    
+
     const pipe = new FileSizePipe();
 
     it('should convert bytes to megabytes', () => {

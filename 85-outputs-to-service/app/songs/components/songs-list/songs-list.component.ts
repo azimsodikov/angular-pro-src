@@ -40,6 +40,7 @@ export class SongsListComponent {
   toggleItem(index: number, prop: string) {
     const track = this.list[index];
     this.toggle.emit({
+      // When toggle fn is runs, it will flip the property by name reassigns the opposite to the property;
       track: { ...track, [prop]: !track[prop] }
     });
   }

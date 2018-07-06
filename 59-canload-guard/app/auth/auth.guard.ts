@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class AuthGuard implements CanLoad {
   constructor(private authService: AuthService) {}
-  canLoad() {
+  canLoad() { // We are implementing CanLoad interface to implement our authService service to load the module;
     return this.authService.checkPermissions();
   }
 }

@@ -6,7 +6,7 @@ import { Component, Input, ChangeDetectionStrategy, EventEmitter, Output } from 
   template: `
     <div class="stock-counter">
       <div>
-        <div 
+        <div
           (keydown)="onKeyUp($event)"
           (blur)="onBlur($event)"
           (focus)="onFocus($event)"

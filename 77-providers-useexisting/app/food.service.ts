@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 export class FoodService {
   constructor(
     private http: Http
-  ) {}
+  ) {console.log('Angular Ultimate')}
   getSides(): Observable<any[]> {
     return this.http.get('/api/sides')
       .map(response => response.json());

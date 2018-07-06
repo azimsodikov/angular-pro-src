@@ -27,7 +27,10 @@ class MockStockInventoryService {
     return Observable.of([{ product_id: 1, quantity: 10 }, { product_id: 2, quantity: 5 }]);
   }
 }
-
+/**
+ *  In this lesson we are gonna test container component which has async methods. We are using our stock inventory component for testing. Inside a mock
+ *  service we are gonna mimic the real service methods which returns Observable.
+ */
 describe('StockInventoryComponent', () => {
 
   let component: StockInventoryComponent;
@@ -47,7 +50,8 @@ describe('StockInventoryComponent', () => {
         StockProductsComponent,
         StockSelectorComponent
       ],
-      providers: [
+      providers: [ // Here we using the MockStockInventoryService instead of the StockInventoryService to be able control the information that we are
+        // ..testing against.
         { provide: StockInventoryService, useClass: MockStockInventoryService }
       ]
     });
@@ -55,7 +59,8 @@ describe('StockInventoryComponent', () => {
     fixture = TestBed.createComponent(StockInventoryComponent);
     component = fixture.componentInstance;
     el = fixture.debugElement;
-    service = el.injector.get(StockInventoryService);
+    service = el.injector.get(StockInventoryService); // We are making sure this service is being injected inside our component, but in reality MockService
+    // ..will be used instead of real service.
   });
 
   it('should get cart items and products on init', () => {

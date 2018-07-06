@@ -11,7 +11,9 @@ export interface Song {
   id: number,
   name: string,
   listened: boolean,
-  favourite: boolean
+  favourite: boolean,
+  artist: string,
+  track
 }
 
 @Injectable()

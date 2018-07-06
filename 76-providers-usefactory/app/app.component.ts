@@ -19,4 +19,8 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  In the providers property instead of using the useClass, we can use useFactory to customize the class that we want to use like we did inside a
+ *  ..drink-viewer.component and other components;
+ */
 export class AppComponent {}

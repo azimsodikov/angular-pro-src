@@ -31,4 +31,10 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  In this lesson we are trying to block the user to some routes if they are not logged in or something; To do this we need to implement the
+ *  ..canActivate interfase in our AuthGuard class and create a canActivate method. Inside that method we can check whether the user is logged in
+ *  ..or not and based on that we can allow the user to that particular route. Both CanLoad or CanActivate interfaces expects observable that will
+ *  ..be boolean.
+ */
 export class AppComponent {}

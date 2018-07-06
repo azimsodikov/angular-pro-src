@@ -39,7 +39,8 @@ describe('StockInventoryComponent', () => {
       declarations: [
         StockInventoryComponent
       ],
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [NO_ERRORS_SCHEMA], // When we are testing without this property set, we need to provide all the child components in declarations
+      // ..property, but since we using NO_ERRORS_SCHEMA we are telling angular that we wanna just test this component not all the child components.
       providers: [
         { provide: StockInventoryService, useClass: MockStockInventoryService }
       ]

@@ -31,4 +31,10 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to put blocks dynamically and deactivate according to some value. So when the user tries to navigate away from
+ *  ..textarea and textarea has an value, we may warn the user that they will loose the value if they do so. To do so, we need to create mail-view.gurad
+ *  ..for this particular component and create a class by implementing CanDeactivate interface, what it does is it will give MailViewComponent instance
+ *  ..and we can access the component data. So this CanDeactivate is called when we try to navigate away from the component.
+ */
 export class AppComponent {}

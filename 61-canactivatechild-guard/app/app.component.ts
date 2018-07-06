@@ -31,4 +31,8 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  In this lesson we learned how to block the child components with the canActivateChild interface. It can help to protect the just a child routes or
+ *  ..subset of child routes depending on the structure of the routes;
+ */
 export class AppComponent {}

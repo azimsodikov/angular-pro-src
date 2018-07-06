@@ -28,4 +28,8 @@ import { AppComponent } from './app.component';
     { provide: API_TOKEN, useValue: '/api/pizzas' }
   ]
 })
+/**
+ *  When use the have two similar token names inside our providers, it is gonna confuse and errors. The way to get around this is using something called api
+ *  .. tokens to use it with the same token names;
+ */
 export class AppModule {}

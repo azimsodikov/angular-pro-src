@@ -19,4 +19,8 @@ import { Component } from '@angular/core';
     </div>
   `
 })
+/**
+ *  When we use providers property inside a component to get our service, we are asking the new instance of the service each time component gets initialized.
+ *  We can also use { provide: FoodService, useClass: SuperFoodService } to use the different class.
+ */
 export class AppComponent {}
